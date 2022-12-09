@@ -12,6 +12,9 @@ dict = dict()
 
 class Controller(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
+        """
+        Constructor to set default values for an account object
+        """
         super().__init__(*args, **kwargs)
         self.setupUi(self)
 
@@ -24,6 +27,10 @@ class Controller(QMainWindow, Ui_MainWindow):
 
 
     def enter_account_num(self):
+        """
+        Method that creates an account or looks to see if an account already exist.
+
+         """
         self.num = int(self.input_num.text().strip())
 
 
@@ -38,6 +45,9 @@ class Controller(QMainWindow, Ui_MainWindow):
 
 
     def submit(self):
+        """
+        Method to get the user inpout and compute the changes to the account
+        """
 
 
         try:
@@ -79,12 +89,18 @@ class Controller(QMainWindow, Ui_MainWindow):
 
 
     def clear(self):
-            self.label_output.setText('')
-            self.label_num.setText('')
-            self.label_amount.setText('')
-            self.radio_deposit.setChecked(True)
+        """
+        Method to clear the gui screen
+        """
+        self.label_output.setText('')
+        self.label_num.setText('')
+        self.label_amount.setText('')
+        self.radio_deposit.setChecked(True)
 
     def check_balance(self):
+        """
+        Method to check the account balance and show it on screen
+        """
         self.label_output.setText(f'\t    ACCOUNT NUMBER: {self.account.get_account_num()}\n'
                                   f'\t    BALANCE TOTAL: ${self.account.get_balance():.2f}')
 
